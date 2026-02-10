@@ -21,7 +21,6 @@ st.write("Enter your information below to estimate diabetes risk.")
 with st.expander("What this tool does", expanded=False):
     st.write(
         "This app estimates diabetes risk based on general health and lifestyle inputs. "
-        "It is not a medical diagnosis."
     )
 
 age_options = [
