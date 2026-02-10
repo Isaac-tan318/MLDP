@@ -17,7 +17,6 @@ except Exception:
 
 st.title("Diabetes Risk Predictor")
 st.write("Enter your information below to estimate diabetes risk.")
-st.image("Tiny doctors.jpg", caption="Healthy choices start with small steps.", use_container_width=True)
 
 with st.expander("What this tool does", expanded=False):
     st.write(
@@ -164,6 +163,7 @@ with col_input:
     input_df = pd.DataFrame([input_data], columns=feature_order)
 
 with col_output:
+    st.image("Tiny doctors.jpg", width=160)
     st.subheader("Step 5: Results")
     st.write("Results update automatically when inputs are valid.")
 
