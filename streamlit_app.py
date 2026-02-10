@@ -163,7 +163,7 @@ with col_input:
     input_df = pd.DataFrame([input_data], columns=feature_order)
 
 with col_output:
-    st.image("Tiny doctors.jpg", width=160)
+    st.image("Tiny doctors.jpg", width=500)
     st.subheader("Step 5: Results")
     st.write("Results update automatically when inputs are valid.")
 
