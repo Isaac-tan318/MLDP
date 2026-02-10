@@ -5,7 +5,6 @@ import numpy as np
 
 # 1. Load the model and scaler
 model = joblib.load('diabetes_model.pkl')
-scaler = joblib.load('scaler.pkl') # Remove this line if you didn't use scaling
 
 # 2. App Title and Description
 st.title("Diabetes Risk Predictor")
