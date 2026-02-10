@@ -17,6 +17,7 @@ except Exception:
 
 st.title("Diabetes Risk Predictor")
 st.write("Enter your information below to estimate diabetes risk.")
+st.image("Tiny doctors.jpg", caption="Healthy choices start with small steps.", use_container_width=True)
 
 with st.expander("What this tool does", expanded=False):
     st.write(
