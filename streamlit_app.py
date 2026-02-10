@@ -5,6 +5,93 @@ import numpy as np
 
 st.set_page_config(page_title="Diabetes Risk Predictor", layout="wide")
 
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    :root {
+        --bg: #f7f8fc;
+        --card: #ffffff;
+        --text: #1f2937;
+        --muted: #6b7280;
+        --primary: #2563eb;
+        --primary-600: #1d4ed8;
+        --border: #e5e7eb;
+        --accent: #14b8a6;
+    }
+
+    html, body, [class*="css"]  {
+        font-family: 'Poppins', 'Segoe UI', sans-serif;
+        color: var(--text);
+    }
+
+    .stApp {
+        background: radial-gradient(1200px 600px at 15% 10%, #e0f2fe 0%, transparent 55%),
+                    radial-gradient(900px 500px at 85% 15%, #ede9fe 0%, transparent 55%),
+                    linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
+    }
+
+    .block-container {
+        background: var(--card);
+        border-radius: 18px;
+        padding: 2rem 2.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    [data-testid="stSidebar"] {
+        background: #f1f5f9;
+        border-right: 1px solid var(--border);
+    }
+
+    [data-testid="stHeader"] {
+        background: transparent;
+    }
+
+    h1, h2, h3, h4 {
+        color: var(--text);
+        font-weight: 600;
+    }
+
+    .stButton > button {
+        background: var(--primary);
+        color: #ffffff;
+        border: none;
+        border-radius: 10px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 600;
+        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+    }
+
+    .stButton > button:hover {
+        background: var(--primary-600);
+    }
+
+    [data-testid="stMetric"] {
+        background: #f8fafc;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.6rem 0.8rem;
+    }
+
+    .stExpander {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    input, textarea, select {
+        background-color: #ffffff !important;
+    }
+
+    .stAlert {
+        border-radius: 12px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 @st.cache_resource(show_spinner="Loading model...")
 def load_model():
     return joblib.load("diabetes_model.pkl")
@@ -163,7 +250,7 @@ with col_input:
     input_df = pd.DataFrame([input_data], columns=feature_order)
 
 with col_output:
-    st.image("Tiny doctors.jpg", width=500)
+    st.image("Tiny doctors.jpg", use_container_width=True)
     st.subheader("Step 5: Results")
     st.write("Results update automatically when inputs are valid.")
 
