@@ -11,86 +11,236 @@ st.markdown(
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
     :root {
-        --bg: #f7f8fc;
-        --card: #ffffff;
-        --text: #1e293b;
-        --muted: #64748b;
+        --text-dark: #1e293b;
+        --text-muted: #64748b;
         --primary: #6366f1;
-        --primary-600: #4f46e5;
+        --primary-hover: #4f46e5;
         --border: #e2e8f0;
-        --accent: #14b8a6;
+        --bg-light: #f8fafc;
     }
 
-    html, body, [class*="css"] {
+    /* ===== GLOBAL TEXT COLOR ===== */
+    html, body, [class*="css"], .stApp, .stApp * {
         font-family: 'Poppins', 'Segoe UI', sans-serif;
-        color: #1e293b !important;
+        color: var(--text-dark) !important;
     }
 
-    /* Force dark text on all elements */
-    .stApp, .stApp * {
-        color: #1e293b;
+    /* ===== HEADINGS ===== */
+    h1, h2, h3, h4, h5, h6,
+    [data-testid="stHeadingWithActionElements"],
+    [data-testid="stHeadingWithActionElements"] * {
+        color: var(--text-dark) !important;
+        font-weight: 600;
     }
 
-    /* Body text and labels */
-    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span,
-    .stMarkdown div, p, span, div {
-        color: #1e293b !important;
+    /* ===== PARAGRAPHS & TEXT ===== */
+    p, span, div, label,
+    .stMarkdown, .stMarkdown *, 
+    .stText, .stText * {
+        color: var(--text-dark) !important;
     }
 
-    label, .stRadio label, .stCheckbox label, .stSelectbox label,
+    /* ===== MUTED/CAPTION TEXT ===== */
+    .stCaption, small, 
+    [data-testid="stCaptionContainer"],
+    [data-testid="stCaptionContainer"] *,
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricLabel"] * {
+        color: var(--text-muted) !important;
+    }
+
+    /* ===== METRIC VALUES ===== */
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricValue"] * {
+        color: var(--text-dark) !important;
+    }
+
+    /* ===== LABELS FOR ALL INPUTS ===== */
+    label, 
+    [data-baseweb="label"],
+    .stRadio label, .stCheckbox label, .stSelectbox label,
     .stNumberInput label, .stTextInput label, .stTextArea label,
     .stSlider label, .stMultiSelect label, .stDateInput label,
-    .stTimeInput label, [data-baseweb="label"] {
-        color: #1e293b !important;
+    .stTimeInput label {
+        color: var(--text-dark) !important;
     }
 
-    .stCaption, small, [data-testid="stCaptionContainer"] {
-        color: #64748b !important;
+    /* ===== RADIO BUTTONS ===== */
+    [data-testid="stRadio"],
+    [data-testid="stRadio"] *,
+    [data-testid="stRadio"] label,
+    [data-testid="stRadio"] span,
+    [data-testid="stRadio"] p,
+    .stRadio, .stRadio * {
+        color: var(--text-dark) !important;
     }
 
-    [data-testid="stMetricLabel"], [data-testid="stMetricLabel"] * {
-        color: #64748b !important;
+    /* ===== CHECKBOXES ===== */
+    [data-testid="stCheckbox"],
+    [data-testid="stCheckbox"] *,
+    [data-testid="stCheckbox"] label,
+    [data-testid="stCheckbox"] span,
+    .stCheckbox, .stCheckbox * {
+        color: var(--text-dark) !important;
     }
 
-    [data-testid="stMetricValue"], [data-testid="stMetricValue"] * {
-        color: #1e293b !important;
+    /* ===== SELECT BOXES / DROPDOWNS ===== */
+    [data-testid="stSelectbox"],
+    [data-testid="stSelectbox"] *,
+    [data-baseweb="select"],
+    [data-baseweb="select"] *,
+    [data-baseweb="select"] span,
+    [data-baseweb="select"] div,
+    .stSelectbox, .stSelectbox * {
+        color: var(--text-dark) !important;
     }
 
-    /* Radio and checkbox text */
-    [data-testid="stRadio"] label, [data-testid="stRadio"] span,
-    [data-testid="stCheckbox"] label, [data-testid="stCheckbox"] span,
-    .stRadio > div, .stCheckbox > label > div {
-        color: #1e293b !important;
+    /* Dropdown menu items */
+    [data-baseweb="menu"],
+    [data-baseweb="menu"] *,
+    [role="listbox"],
+    [role="listbox"] *,
+    [role="option"],
+    [role="option"] * {
+        color: var(--text-dark) !important;
+        background-color: #ffffff !important;
     }
 
-    /* Select boxes and dropdowns */
-    [data-baseweb="select"] span, [data-baseweb="select"] div {
-        color: #1e293b !important;
+    /* ===== NUMBER INPUT ===== */
+    [data-testid="stNumberInput"],
+    [data-testid="stNumberInput"] *,
+    [data-testid="stNumberInput"] label,
+    [data-testid="stNumberInput"] span,
+    [data-testid="stNumberInput"] input,
+    .stNumberInput, .stNumberInput * {
+        color: var(--text-dark) !important;
     }
 
-    /* Number input */
-    [data-testid="stNumberInput"] label, [data-testid="stNumberInput"] span {
-        color: #1e293b !important;
+    /* Number input stepper buttons (+/-) */
+    [data-testid="stNumberInput"] button,
+    [data-testid="stNumberInput"] button *,
+    [data-testid="stNumberInput"] [data-baseweb="button"],
+    [data-baseweb="input"] button,
+    [data-baseweb="input"] button *,
+    button[kind="secondary"],
+    .step-up, .step-down {
+        color: var(--text-dark) !important;
+        background-color: var(--bg-light) !important;
+        border: 1px solid var(--border) !important;
     }
 
-    /* Slider */
-    [data-testid="stSlider"] label, [data-testid="stSlider"] span,
-    .stSlider > div > div > div {
-        color: #1e293b !important;
+    [data-testid="stNumberInput"] button:hover,
+    [data-baseweb="input"] button:hover {
+        background-color: #e2e8f0 !important;
+        color: var(--primary) !important;
     }
 
-    /* Expander */
-    .stExpander summary, .stExpander summary span,
+    /* ===== SLIDER ===== */
+    [data-testid="stSlider"],
+    [data-testid="stSlider"] *,
+    [data-testid="stSlider"] label,
+    [data-testid="stSlider"] span,
+    [data-testid="stSlider"] div,
+    .stSlider, .stSlider * {
+        color: var(--text-dark) !important;
+    }
+
+    /* Slider thumb */
+    [data-testid="stSlider"] [role="slider"],
+    [data-baseweb="slider"] [role="slider"] {
+        background-color: var(--primary) !important;
+        border-color: var(--primary) !important;
+    }
+
+    /* Slider track */
+    [data-testid="stSlider"] [data-testid="stTickBar"],
+    [data-baseweb="slider"] div[role="progressbar"] {
+        background-color: var(--primary) !important;
+    }
+
+    /* Slider value labels */
+    [data-testid="stSlider"] [data-testid="stTickBarMin"],
+    [data-testid="stSlider"] [data-testid="stTickBarMax"],
+    [data-baseweb="slider"] div {
+        color: var(--text-dark) !important;
+    }
+
+    /* ===== EXPANDER ===== */
+    .stExpander,
+    .stExpander *,
+    .stExpander summary,
+    .stExpander summary *,
+    [data-testid="stExpander"],
+    [data-testid="stExpander"] *,
+    [data-testid="stExpander"] summary,
     [data-testid="stExpander"] summary span {
-        color: #1e293b !important;
+        color: var(--text-dark) !important;
     }
 
+    .stExpander {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: #fafafa;
+    }
+
+    /* ===== INPUT FIELDS ===== */
+    input, textarea, select,
+    [data-baseweb="input"],
+    [data-baseweb="input"] input,
+    [data-baseweb="textarea"],
+    [data-baseweb="textarea"] textarea {
+        background-color: #ffffff !important;
+        color: var(--text-dark) !important;
+        border: 1px solid var(--border) !important;
+    }
+
+    /* ===== DATAFRAME / TABLE ===== */
+    .stDataFrame, .stDataFrame *,
+    .stDataFrame td, .stDataFrame th,
+    [data-testid="stDataFrame"],
+    [data-testid="stDataFrame"] *,
+    table, table *, td, th {
+        color: var(--text-dark) !important;
+    }
+
+    /* ===== ALERTS (SUCCESS/ERROR) ===== */
+    .stAlert {
+        border-radius: 12px;
+    }
+
+    [data-testid="stAlert"] p,
+    .stAlert p {
+        color: inherit !important;
+    }
+
+    /* ===== PROGRESS BAR ===== */
+    .stProgress > div > div,
+    [data-testid="stProgress"] > div > div {
+        background: linear-gradient(90deg, var(--primary), #8b5cf6) !important;
+    }
+
+    /* ===== METRIC CARD ===== */
+    [data-testid="stMetric"] {
+        background: var(--bg-light);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.6rem 0.8rem;
+    }
+
+    /* ===== TOOLTIP / HELP ICON ===== */
+    [data-testid="stTooltipIcon"],
+    [data-testid="stTooltipIcon"] * {
+        color: var(--text-muted) !important;
+    }
+
+    /* ===== APP BACKGROUND ===== */
     .stApp {
         background: radial-gradient(1200px 600px at 15% 10%, #ddd6fe 0%, transparent 55%),
                     radial-gradient(900px 500px at 85% 15%, #c7d2fe 0%, transparent 55%),
                     linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
     }
 
+    /* ===== MAIN CONTAINER ===== */
     .block-container {
         background: rgba(255, 255, 255, 0.95);
         border-radius: 18px;
@@ -98,22 +248,20 @@ st.markdown(
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
     }
 
+    /* ===== SIDEBAR ===== */
     [data-testid="stSidebar"] {
         background: #f1f5f9;
         border-right: 1px solid var(--border);
     }
 
+    /* ===== HEADER ===== */
     [data-testid="stHeader"] {
         background: transparent;
     }
 
-    h1, h2, h3, h4, [data-testid="stHeadingWithActionElements"] {
-        color: #1e293b !important;
-        font-weight: 600;
-    }
-
+    /* ===== BUTTONS ===== */
     .stButton > button {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
         color: #ffffff !important;
         border: none;
         border-radius: 10px;
@@ -123,44 +271,18 @@ st.markdown(
     }
 
     .stButton > button:hover {
-        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        background: linear-gradient(135deg, var(--primary-hover) 0%, #7c3aed 100%);
     }
 
-    [data-testid="stMetric"] {
-        background: #f8fafc;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 0.6rem 0.8rem;
+    /* ===== SVG ICONS ===== */
+    svg, svg * {
+        fill: var(--text-dark);
+        stroke: var(--text-dark);
     }
 
-    .stExpander {
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        background: #fafafa;
-    }
-
-    input, textarea, select {
-        background-color: #ffffff !important;
-        color: #1e293b !important;
-    }
-
-    .stAlert {
-        border-radius: 12px;
-    }
-
-    /* Success and error messages */
-    [data-testid="stAlert"] p {
-        color: inherit !important;
-    }
-
-    /* Progress bar */
-    .stProgress > div > div {
-        background: linear-gradient(90deg, #6366f1, #8b5cf6) !important;
-    }
-
-    /* DataFrame text */
-    .stDataFrame, .stDataFrame td, .stDataFrame th {
-        color: #1e293b !important;
+    /* Exclude checkmarks and specific icons */
+    [data-testid="stCheckbox"] svg {
+        fill: var(--primary) !important;
     }
     </style>
     """,
