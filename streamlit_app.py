@@ -95,18 +95,14 @@ with col_input:
     with col_left:
         high_bp = st.checkbox("High blood pressure")
         high_chol = st.checkbox("High cholesterol")
-        chol_check = st.checkbox("Cholesterol check within 5 years", value=True)
         smoker = st.checkbox("Smoked at least 100 cigarettes in lifetime")
         stroke = st.checkbox("History of stroke")
         heart_disease = st.checkbox("Heart disease or heart attack")
     with col_right:
-        phys_activity = st.checkbox("Physically active in past 30 days", value=True)
         fruits = st.checkbox("Eats fruit daily", value=True)
         veggies = st.checkbox("Eats vegetables daily", value=True)
         hvy_alcohol = st.checkbox("Heavy alcohol consumption")
         diff_walk = st.checkbox("Difficulty walking or climbing stairs")
-        any_healthcare = st.checkbox("Has health care coverage", value=True)
-        nodoc_cost = st.checkbox("Could not see a doctor due to cost")
 
     st.subheader("Step 3: Overall health")
     gen_health_label = st.select_slider("General health", options=gen_health_options, value="Good")
@@ -128,17 +124,13 @@ with col_input:
     input_data = {
         "HighBP": int(high_bp),
         "HighChol": int(high_chol),
-        "CholCheck": int(chol_check),
         "BMI": float(bmi) if np.isfinite(bmi) else np.nan,
         "Smoker": int(smoker),
         "Stroke": int(stroke),
         "HeartDiseaseorAttack": int(heart_disease),
-        "PhysActivity": int(phys_activity),
         "Fruits": int(fruits),
         "Veggies": int(veggies),
         "HvyAlcoholConsump": int(hvy_alcohol),
-        "AnyHealthcare": int(any_healthcare),
-        "NoDocbcCost": int(nodoc_cost),
         "GenHlth": gen_health_map[gen_health_label],
         "MentHlth": int(ment_hlth),
         "PhysHlth": int(phys_hlth),
@@ -152,17 +144,13 @@ with col_input:
     feature_order = [
         "HighBP",
         "HighChol",
-        "CholCheck",
         "BMI",
         "Smoker",
         "Stroke",
         "HeartDiseaseorAttack",
-        "PhysActivity",
         "Fruits",
         "Veggies",
         "HvyAlcoholConsump",
-        "AnyHealthcare",
-        "NoDocbcCost",
         "GenHlth",
         "MentHlth",
         "PhysHlth",
