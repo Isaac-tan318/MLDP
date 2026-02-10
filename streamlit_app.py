@@ -164,36 +164,29 @@ with col_input:
 
 with col_output:
     st.subheader("Step 5: Results")
-    st.write("Click the button below to estimate risk.")
+    st.write("Results update automatically when inputs are valid.")
 
     if errors:
         st.error("Please fix the following before predicting:\n- " + "\n- ".join(errors))
     else:
-        st.info("Inputs look good. You can run the prediction.")
-
-    predict_clicked = st.button("Predict risk", type="primary", use_container_width=True)
-    if predict_clicked:
-        if errors:
-            st.error("Prediction not run. Please correct the inputs and try again.")
-        else:
-            try:
-                prediction = model.predict(input_df)
-                if hasattr(model, "predict_proba"):
-                    probability = model.predict_proba(input_df)[0][1]
-                else:
-                    probability = None
-            except Exception:
-                st.error("Prediction failed. Please try again or contact the app owner.")
+        try:
+            prediction = model.predict(input_df)
+            if hasattr(model, "predict_proba"):
+                probability = model.predict_proba(input_df)[0][1]
             else:
-                if prediction[0] == 1:
-                    st.error("High risk of diabetes")
-                else:
-                    st.success("Low risk of diabetes")
+                probability = None
+        except Exception:
+            st.error("Prediction failed. Please try again or contact the app owner.")
+        else:
+            if prediction[0] == 1:
+                st.error("High risk of diabetes")
+            else:
+                st.success("Low risk of diabetes")
 
-                if probability is not None:
-                    safe_prob = max(0.0, min(float(probability), 1.0))
-                    st.progress(int(round(safe_prob * 100)))
-                    st.caption(f"Estimated probability: {probability:.1%}")
+            if probability is not None:
+                safe_prob = max(0.0, min(float(probability), 1.0))
+                st.progress(int(round(safe_prob * 100)))
+                st.caption(f"Estimated probability: {probability:.1%}")
 
     with st.expander("Review your inputs"):
         st.dataframe(input_df.T, use_container_width=True)
