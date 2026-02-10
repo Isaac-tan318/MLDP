@@ -13,47 +13,86 @@ st.markdown(
     :root {
         --bg: #f7f8fc;
         --card: #ffffff;
-        --text: #1f2937;
-        --muted: #6b7280;
-        --primary: #2563eb;
-        --primary-600: #1d4ed8;
-        --border: #e5e7eb;
+        --text: #1e293b;
+        --muted: #64748b;
+        --primary: #6366f1;
+        --primary-600: #4f46e5;
+        --border: #e2e8f0;
         --accent: #14b8a6;
     }
 
-    html, body, [class*="css"]  {
+    html, body, [class*="css"] {
         font-family: 'Poppins', 'Segoe UI', sans-serif;
-        color: var(--text);
+        color: #1e293b !important;
+    }
+
+    /* Force dark text on all elements */
+    .stApp, .stApp * {
+        color: #1e293b;
     }
 
     /* Body text and labels */
-    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span {
-        color: var(--text);
+    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span,
+    .stMarkdown div, p, span, div {
+        color: #1e293b !important;
     }
+
     label, .stRadio label, .stCheckbox label, .stSelectbox label,
     .stNumberInput label, .stTextInput label, .stTextArea label,
     .stSlider label, .stMultiSelect label, .stDateInput label,
-    .stTimeInput label {
-        color: var(--text) !important;
+    .stTimeInput label, [data-baseweb="label"] {
+        color: #1e293b !important;
     }
-    .stCaption, small {
-        color: var(--muted) !important;
+
+    .stCaption, small, [data-testid="stCaptionContainer"] {
+        color: #64748b !important;
     }
-    [data-testid="stMetricLabel"] {
-        color: var(--muted);
+
+    [data-testid="stMetricLabel"], [data-testid="stMetricLabel"] * {
+        color: #64748b !important;
     }
-    [data-testid="stMetricValue"] {
-        color: var(--text);
+
+    [data-testid="stMetricValue"], [data-testid="stMetricValue"] * {
+        color: #1e293b !important;
+    }
+
+    /* Radio and checkbox text */
+    [data-testid="stRadio"] label, [data-testid="stRadio"] span,
+    [data-testid="stCheckbox"] label, [data-testid="stCheckbox"] span,
+    .stRadio > div, .stCheckbox > label > div {
+        color: #1e293b !important;
+    }
+
+    /* Select boxes and dropdowns */
+    [data-baseweb="select"] span, [data-baseweb="select"] div {
+        color: #1e293b !important;
+    }
+
+    /* Number input */
+    [data-testid="stNumberInput"] label, [data-testid="stNumberInput"] span {
+        color: #1e293b !important;
+    }
+
+    /* Slider */
+    [data-testid="stSlider"] label, [data-testid="stSlider"] span,
+    .stSlider > div > div > div {
+        color: #1e293b !important;
+    }
+
+    /* Expander */
+    .stExpander summary, .stExpander summary span,
+    [data-testid="stExpander"] summary span {
+        color: #1e293b !important;
     }
 
     .stApp {
-        background: radial-gradient(1200px 600px at 15% 10%, #e0f2fe 0%, transparent 55%),
-                    radial-gradient(900px 500px at 85% 15%, #ede9fe 0%, transparent 55%),
-                    linear-gradient(180deg, #f8fafc 0%, #f3f4f6 100%);
+        background: radial-gradient(1200px 600px at 15% 10%, #ddd6fe 0%, transparent 55%),
+                    radial-gradient(900px 500px at 85% 15%, #c7d2fe 0%, transparent 55%),
+                    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
     }
 
     .block-container {
-        background: var(--card);
+        background: rgba(255, 255, 255, 0.95);
         border-radius: 18px;
         padding: 2rem 2.5rem;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
@@ -68,23 +107,23 @@ st.markdown(
         background: transparent;
     }
 
-    h1, h2, h3, h4 {
-        color: var(--text);
+    h1, h2, h3, h4, [data-testid="stHeadingWithActionElements"] {
+        color: #1e293b !important;
         font-weight: 600;
     }
 
     .stButton > button {
-        background: var(--primary);
-        color: #ffffff;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        color: #ffffff !important;
         border: none;
         border-radius: 10px;
         padding: 0.6rem 1.2rem;
         font-weight: 600;
-        box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+        box-shadow: 0 8px 18px rgba(99, 102, 241, 0.3);
     }
 
     .stButton > button:hover {
-        background: var(--primary-600);
+        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     }
 
     [data-testid="stMetric"] {
@@ -102,10 +141,26 @@ st.markdown(
 
     input, textarea, select {
         background-color: #ffffff !important;
+        color: #1e293b !important;
     }
 
     .stAlert {
         border-radius: 12px;
+    }
+
+    /* Success and error messages */
+    [data-testid="stAlert"] p {
+        color: inherit !important;
+    }
+
+    /* Progress bar */
+    .stProgress > div > div {
+        background: linear-gradient(90deg, #6366f1, #8b5cf6) !important;
+    }
+
+    /* DataFrame text */
+    .stDataFrame, .stDataFrame td, .stDataFrame th {
+        color: #1e293b !important;
     }
     </style>
     """,
