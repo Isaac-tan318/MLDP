@@ -26,6 +26,26 @@ st.markdown(
         color: var(--text);
     }
 
+    /* Body text and labels */
+    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span {
+        color: var(--text);
+    }
+    label, .stRadio label, .stCheckbox label, .stSelectbox label,
+    .stNumberInput label, .stTextInput label, .stTextArea label,
+    .stSlider label, .stMultiSelect label, .stDateInput label,
+    .stTimeInput label {
+        color: var(--text) !important;
+    }
+    .stCaption, small {
+        color: var(--muted) !important;
+    }
+    [data-testid="stMetricLabel"] {
+        color: var(--muted);
+    }
+    [data-testid="stMetricValue"] {
+        color: var(--text);
+    }
+
     .stApp {
         background: radial-gradient(1200px 600px at 15% 10%, #e0f2fe 0%, transparent 55%),
                     radial-gradient(900px 500px at 85% 15%, #ede9fe 0%, transparent 55%),
