@@ -176,7 +176,7 @@ with col_output:
             else:
                 probability = None
         except Exception:
-            st.error("Prediction failed. Please try again or contact the app owner.")
+            st.error(f"An error occurred: {e}")
         else:
             if prediction[0] == 1:
                 st.error("High risk of diabetes")
