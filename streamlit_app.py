@@ -98,6 +98,7 @@ with col_input:
         stroke = st.checkbox("History of stroke")
         heart_disease = st.checkbox("Heart disease or heart attack")
     with col_right:
+        phys_activity = st.checkbox("Physically active in past 30 days", value=True)
         fruits = st.checkbox("Eats fruit daily", value=True)
         veggies = st.checkbox("Eats vegetables daily", value=True)
         hvy_alcohol = st.checkbox("Heavy alcohol consumption")
@@ -127,6 +128,7 @@ with col_input:
         "Smoker": int(smoker),
         "Stroke": int(stroke),
         "HeartDiseaseorAttack": int(heart_disease),
+        "PhysActivity": int(phys_activity),
         "Fruits": int(fruits),
         "Veggies": int(veggies),
         "HvyAlcoholConsump": int(hvy_alcohol),
@@ -147,6 +149,7 @@ with col_input:
         "Smoker",
         "Stroke",
         "HeartDiseaseorAttack",
+        "PhysActivity",
         "Fruits",
         "Veggies",
         "HvyAlcoholConsump",
