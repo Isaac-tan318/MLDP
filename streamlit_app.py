@@ -175,8 +175,8 @@ with col_output:
                 probability = model.predict_proba(input_df)[0][1]
             else:
                 probability = None
-        except Exception:
-            st.error(f"An error occurred: {Exception}")
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
         else:
             if prediction[0] == 1:
                 st.error("High risk of diabetes")
